@@ -1,18 +1,18 @@
 import bottlenose
-import os
 
-from dotenv import load_dotenv
 from logging import info, warning, error
+from ProductAdvertisingApi import ProductAdvertisingAPI
 
 def main():
-    load_dotenv()
-    AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-    AWS_ASSOCIATE_TAG = os.getenv("AWS_ASSOCIATE_TAG")
+    ## create instance
+    paapi = ProductAdvertisingAPI()
+    item_ids = ["B007OZNUCE"]  ## sample item ids
 
-    amazon = bottlenose.Amazon(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_ASSOCIATE_TAG)
-    response = amazon.ItemLookup(ItemId="B007OZNUCE")
-    print(response)
+    ## get response
+    response = paapi.item_lookup(item_ids)
+
+    ##display raw bs4 response
+    print (response)
 
 
 if __name__ == "__main__":
