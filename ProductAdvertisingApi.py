@@ -42,3 +42,14 @@ class ProductAdvertisingAPI(object):
             print("Amazon object invalid, check credentials")
             return None
 
+    def item_search(self, parameters):
+        ##TODO documentation
+        search_index = parameters['search_index']
+        keywords = parameters['keywords']
+        try:
+            return self.amazon.ItemSearch(SearchIndex=search_index, Keywords=keywords)
+        except Exception as e:
+            print(e)
+            print("Probably credentials")
+            return None
+
