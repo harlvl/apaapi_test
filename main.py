@@ -1,6 +1,10 @@
 from logging import info, warning, error
 from ProductAdvertisingApi import ProductAdvertisingAPI
 
+"""
+Responses are XML, they must be parsed (for now using bs4) and returned in a human-readable format
+"""
+
 def main():
     
     # demo_item_lookup()

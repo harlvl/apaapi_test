@@ -11,10 +11,10 @@ class ProductAdvertisingAPI(object):
     def __init__(self):
         try:
             self.amazon = bottlenose.Amazon(
-                AWSAccessKeyId=self.env.AWS_ACCESS_KEY_ID,
-                AWSSecretAccessKey=self.env.AWS_SECRET_ACCESS_KEY,
-                AssociateTag=self.env.AWS_ASSOCIATE_TAG,
-                Parser=lambda response_text: BeautifulSoup(response_text, 'lxml'))
+                AWSAccessKeyId = self.env.AWS_ACCESS_KEY_ID,
+                AWSSecretAccessKey = self.env.AWS_SECRET_ACCESS_KEY,
+                AssociateTag = self.env.AWS_ASSOCIATE_TAG,
+                Parser = lambda response_text: BeautifulSoup(response_text, 'lxml'))
             self.is_valid = True
         except Exception as e:
             print(e)
